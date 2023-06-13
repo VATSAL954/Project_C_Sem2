@@ -1,0 +1,303 @@
+#include<conio.h>
+
+#include<stdio.h>
+
+#include<process.h>
+
+#include<fstream.h>
+
+    //***************************************************************
+
+    // CLASS USED IN PROJECT
+
+    //****************************************************************
+
+    class product 
+
+    {
+
+        int pno;
+
+        char name[50];
+
+        float price, qty, tax, dis;
+
+        public:
+
+            void create_product() 
+
+            {
+
+                cout << "\nPlease Enter The Product No. of The Product ";
+
+                cin >> pno;
+
+                cout << "\n\nPlease Enter The Name of The Product ";
+
+                gets(name);
+
+                cout << "\nPlease Enter The Price of The Product ";
+
+                cin >> price;
+
+                cout << "\nPlease Enter The Discount (%) ";
+
+                cin >> dis;
+
+            }
+
+        void show_product() 
+
+        {
+
+            cout << "\nThe Product No. of The Product : " << pno;
+
+            cout << "\nThe Name of The Product : ";
+
+            puts(name);
+
+            cout << "\nThe Price of The Product : " << price;
+
+            cout << "\nDiscount : " << dis;
+
+        }
+
+        int retpno() 
+
+        {
+
+            return pno;
+
+        }
+
+        float retprice() 
+
+        {
+
+            return price;
+
+        }
+
+        char * retname() 
+
+        {
+
+            return name;
+
+        }
+
+        int retdis() 
+
+        {
+
+            return dis;
+
+        }
+
+    }; //class ends here
+    }
+
+            fp.read((char * ) & pr, sizeof(product));
+
+        }
+
+        fp.close();
+
+    }
+
+    cout << "\n\n\t\t\t\t\tTOTAL = " << total;
+
+    getch();
+
+}
+
+//***************************************************************
+
+// INTRODUCTION FUNCTION
+
+//****************************************************************
+
+void intro() 
+
+{
+
+    clrscr();
+
+    gotoxy(31, 11);
+
+    cout << "SUPER MARKET";
+
+    gotoxy(35, 14);
+
+    cout << "BILLING";
+
+    gotoxy(35, 17);
+
+    cout << "PROJECT";
+    gtech()
+    }
+    }
+
+//***************************************************************
+
+// ADMINSTRATOR MENU FUNCTION
+
+//****************************************************************
+
+void admin_menu() 
+
+{
+
+    clrscr();
+
+    char ch2;
+
+    cout << "\n\n\n\tADMIN MENU";
+
+    cout << "\n\n\t1.CREATE PRODUCT";
+
+    cout << "\n\n\t2.DISPLAY ALL PRODUCTS";
+
+    cout << "\n\n\t3.QUERY ";
+
+    cout << "\n\n\t4.MODIFY PRODUCT";
+
+    cout << "\n\n\t5.DELETE PRODUCT";
+
+    cout << "\n\n\t6.VIEW PRODUCT MENU";
+
+    cout << "\n\n\t7.BACK TO MAIN MENU";
+
+    cout << "\n\n\tPlease Enter Your Choice (1-7) ";
+
+    ch2 = getche();
+
+    switch (ch2) 
+
+    {
+
+    case '1':
+
+        clrscr();
+
+        write_product();
+
+        break;
+
+    case '2':
+
+        display_all();
+
+        break;
+
+    case '3':
+
+        int num;
+
+        clrscr();
+
+        cout << "\n\n\tPlease Enter The Product No. ";
+
+        cin >> num;
+
+        display_sp(num);
+
+        break;
+
+    case '4':
+
+        modify_product();
+
+        break;
+
+    case '5':
+
+        delete_product();
+
+        break;
+
+    case '6':
+
+        menu();
+
+        getch();
+
+    case '7':
+
+        break;
+
+    default:
+
+        cout << "\a";
+
+        admin_menu();
+
+    }
+
+}
+
+//***************************************************************
+
+// THE MAIN FUNCTION OF PROGRAM
+
+//****************************************************************
+
+void main() 
+
+{
+
+    char ch;
+
+    intro();
+
+    do 
+
+    {
+
+        clrscr();
+
+        cout << "\n\n\n\tMAIN MENU";
+
+        cout << "\n\n\t01. CUSTOMER";
+
+        cout << "\n\n\t02. ADMINISTRATOR";
+
+        cout << "\n\n\t03. EXIT";
+
+        cout << "\n\n\tPlease Select Your Option (1-3) ";
+
+        ch = getche();
+
+        switch (ch) 
+
+        {
+
+        case '1':
+
+            clrscr();
+
+            place_order();
+
+            getch();
+
+            break;
+
+        case '2':
+
+            admin_menu();
+
+            break;
+
+        case '3':
+
+            exit(0);
+
+        default:
+
+            cout << "\a";
+
+        }
+
+    } while (ch != '3');
+
+}
